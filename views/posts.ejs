@@ -1,0 +1,89 @@
+<!-- START PAGE SOURCE -->
+<%- include("partials/header") %> 
+<%- include("partials/navbar") %>
+<% if (typeof isAuthenticated !== "undefined" && isAuthenticated) { %>
+  <%- include("partials/sidenav") %> 
+<% } %>
+
+<div class="main">
+  <div class="clr"></div>
+</div>
+
+<div class="content">
+  <div class="content_resize">
+    <div class="mainbar">
+      <% posts.forEach(post => { %>
+      <div class="article">
+        <h2><%=post.title%></h2>
+        <div class="clr"></div>
+        <p>
+          <span class="date">On <%= post.date %> </span> Posted by
+          <a href="#">Owner</a> &nbsp;&nbsp;
+        </p>
+        <img src="../<%=post.image%>" width="625" height="205" class="thumbnail" alt="" />
+        <p><%= post.excerpt%></p>
+        <p class="spec">
+          <a href="<%= /post/+post.title %>" class="rm">Read more &raquo;</a>
+        </p>
+      </div>
+      <% }) %>
+
+      <p class="pages">
+        <small
+          >Page <%= currentPage %> of
+          <%= pages %> &nbsp;&nbsp;&nbsp;</small
+        >
+        <% if (currentPage == pages && pages > 1) { %>
+          <a href="/posts/<%= parseInt(currentPage) - 1%>">&laquo;</a>
+        <% } %>
+        
+        <% for( let index = 0; index < pages; index++ ) { %>
+          <% if ((parseInt(index) + 1) == currentPage){ %>
+           <span><%=currentPage%></span>
+          
+          <% } else { %>
+            <a href="/posts/<%=parseInt(index) + 1 %>"> <%=index+1%></a>
+            <% } %>
+          
+        <% } %>
+        <% if (currentPage == 1 && pages > 1) { %>
+          <a href="/posts/<%= parseInt(currentPage) + 1%>">&raquo;</a>
+        <% } %>
+        
+      </p>
+    </div>
+    <div class="sidebar">
+      <div class="searchform">
+        
+      </div>
+      <div class="gadget">
+        <h2 class="star"><span>Sidebar</span> Menu</h2>
+        <div class="clr"></div>
+        <ul class="sb_menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="#foot">Contact</a></li>
+          <li><a href="/posts/1">Blog</a></li>
+          
+        </ul>
+      </div>
+      <div class="gadget">
+        <h2 class="star"><span>Sponsors</span></h2>
+        <div class="clr"></div>
+        <ul class="ex_menu">
+          <% sponsors.forEach(sponsor => { %>
+            <li>
+              <a href="#"><strong><%=sponsor.name%></strong> </a><br>
+             <%=sponsor.description%>
+            </li>
+          <% }) %>
+          
+          
+        </ul>
+      </div>
+    </div>
+    <div class="clr"></div>
+  </div>
+</div>
+
+<%- include("partials/footer") %>

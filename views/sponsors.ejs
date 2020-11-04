@@ -1,0 +1,51 @@
+<%- include("partials/header") %> <%- include("partials/navbar") %> <%-
+include("partials/sidenav") %>
+<div class="container">
+  <form action="/sponsors" method="post">
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Sponsor name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleFormControlInput1"
+        name="name"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Sponsor Description</label>
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+        name="description"
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <br />
+  <h2>List Of Sponsors</h2>
+  <div class="row">
+      
+      <% if (typeof sponsors !== "undefined") { %>
+        <% sponsors.forEach(sponsor => { %>
+            <form action="/sponsor-delete" method="post">
+                <input type="hidden" name="id" value= '<%= sponsor.id %>' >
+            <div class="card card-container" style="width: 18rem">
+                <div class="card-body">
+                  <h5 class="card-title"><%= sponsor.name %></h5>
+                  <p class="card-text">
+                    <%= sponsor.description %> 
+                  </p>
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+              </div>
+            </form>
+          <% }) %>
+      <% } %>
+     
+
+  </div>
+</div>
