@@ -266,7 +266,7 @@ app.post('/forgot', function (req, res, next) {
                 secure: true,
                 auth: {
                     user: user.username,
-                    pass: process.env.GMAIL_PASS
+                    pass: process.env.RAZZLE_GMAIL_PASS
                 }
             });
             var mailOptions = {
@@ -415,7 +415,7 @@ app.post("/comments", (req, res) => {
     if (req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
         return res.json({ "responseError": "something goes to wrong" });
     }
-    const secretKey = process.env.CAPTCHA_SECRET;
+    const secretKey = process.env.RAZZLE_CAPTCHA_SECRET;
 
     const verificationURL = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
 
@@ -444,13 +444,13 @@ app.post("/comments", (req, res) => {
 });
 
 app.post('/contact', (req, res) => {
-    const GMAIL_USER = process.env.GMAIL_USER
-    const GMAIL_PASS = process.env.GMAIL_PASS
+    const GMAIL_USER = process.env.RAZZLE_GMAIL_USER
+    const GMAIL_PASS = process.env.RAZZLE_GMAIL_PASS
 
     if (req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
         return res.json({ "responseError": "something goes to wrong" });
     }
-    const secretKey = process.env.CAPTCHA_SECRET;
+    const secretKey = process.env.RAZZLE_CAPTCHA_SECRET;
 
     const verificationURL = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
 

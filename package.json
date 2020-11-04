@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "12.18.3"
+  },
   "author": "Daniel Ogbuti",
   "license": "ISC",
   "dependencies": {
@@ -27,4 +30,5 @@
     "passport-local-mongoose": "^6.0.1",
     "request": "^2.88.2"
   }
+  
 }
