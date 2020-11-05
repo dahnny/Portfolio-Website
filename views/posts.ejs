@@ -1,11 +1,9 @@
 <!-- START PAGE SOURCE -->
 <%- include("partials/header") %> 
 <%- include("partials/navbar") %>
-<% if (typeof isAuthenticated !== "undefined" && isAuthenticated) { %>
-  <%- include("partials/sidenav") %> 
-<% } %>
 
-<div class="main">
+
+<div class="container">
   <div class="clr"></div>
 </div>
 
@@ -20,7 +18,7 @@
           <span class="date">On <%= post.date %> </span> Posted by
           <a href="#">Owner</a> &nbsp;&nbsp;
         </p>
-        <img src="../<%=post.image%>" width="625" height="205" class="thumbnail" alt="" />
+        <img src="../<%=post.image%>" width="400" height="205" class="post-image thumbnail" alt="" />
         <p><%= post.excerpt%></p>
         <p class="spec">
           <a href="<%= /post/+post.title %>" class="rm">Read more &raquo;</a>

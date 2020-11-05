@@ -20,6 +20,8 @@
 .thumbnail{
   object-fit: cover;
 }
+
+
 .site-container {
   width: 1115px;
   margin: 0 auto; }
@@ -154,6 +156,12 @@
     .fh5co-top-banner {
       padding-top: 130px; } }
   @media (max-width: 520px) {
+    .sidenav{
+      display: none;
+    }
+    .push-left{
+      margin: auto;
+    }
     .fh5co-top-banner {
       padding-top: 105px; } }
   @media (min-width: 1600px) {
@@ -893,8 +901,8 @@
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
+  right:0;
   background-color: #c18f59; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }

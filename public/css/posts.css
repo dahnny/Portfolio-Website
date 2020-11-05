@@ -64,6 +64,33 @@ a.com span {
 	margin:0 0 12px;
 	padding:8px 16px 8px 24px;
 }
+
+.post-image{
+	width: 625px;
+}
+
+@media (max-width : 576px){
+	.gadget{
+		display: none;
+	}
+
+	.content .content_resize{
+		width: auto;
+		overflow: hidden;
+	}
+
+	.article{
+		width: 500px;
+	}
+
+	.pages{
+		float: left;
+	}
+
+	.post-image{
+		width: 400px;
+	}
+}
 ul.sb_menu, ul.ex_menu {
 	margin:0;
 	padding:0;
@@ -123,6 +150,8 @@ ul.ex_menu li a:hover {
 	font-size:11px;
 	float:left;
 }
+
+
 .content .mainbar .article, .content .sidebar .gadget, .fbg_resize {
 	background-color:#fff;
 	border:1px solid #dfdede;
